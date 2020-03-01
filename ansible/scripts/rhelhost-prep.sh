@@ -21,8 +21,9 @@ yum install firewalld cockpit-composer cockpit bash-completion -y
 systemctl enable --now firewalld
 systemctl enable --now cockpit.socket
 setenforce 0
-firewall-cmd --add-service=cockpit
 firewall-cmd --add-service=cockpit --permanent
+firewall-cmd --add-service=ssh --permanent
+firewall-cmd --reload
 setenforce 1
 
 #prep for assign3,4
